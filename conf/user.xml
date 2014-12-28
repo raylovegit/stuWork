@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    	<package name="user" extends="struts-stu" namespace="/">
+    			<action name="userAction_*" class="userAction" method="{1}">
+    				<result name="list">/WEB-INF/jsp/user/list.jsp</result>
+    				<result name="delete" type="redirect">/userAction_list.action</result>
+    				<result name="create">/WEB-INF/jsp/user/create.jsp</result>
+    				<result name="createok" type="redirect">/userAction_list.action</result>
+    				<result name="update">/WEB-INF/jsp/user/update.jsp?pageNow=${pageNow}</result>
+    				<result name="updateok" type="redirect">/userAction_list.action?pageNow=${pageNow}</result>
+    				<result name="read">/WEB-INF/jsp/user/read.jsp</result>
+    				<result name="bentchDelete" type="redirect">/userAction_list.action</result>
+    			</action>
+    	</package>
+    </struts>

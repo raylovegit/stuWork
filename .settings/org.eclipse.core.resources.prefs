@@ -1,0 +1,20 @@
+#Mon Aug 02 12:59:10 CST 2010
+eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/jsp/news/create.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/news/list.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/news/update.jsp=UTF-8
+encoding//WebRoot/common/js.jsp=UTF-8
+encoding//WebRoot/denglu/news_top.jsp=UTF-8
+encoding//WebRoot/guiMain.jsp=UTF-8
+encoding//WebRoot/guiSub.jsp=UTF-8
+encoding//WebRoot/guizhang2.jsp=UTF-8
+encoding//WebRoot/indexMain.jsp=UTF-8
+encoding//WebRoot/indexfooter.jsp=UTF-8
+encoding//WebRoot/indexheader.jsp=UTF-8
+encoding//WebRoot/js/opera.js=UTF-8
+encoding//WebRoot/js/top.js=UTF-8
+encoding//WebRoot/messageMain.jsp=UTF-8
+encoding//src/common/util/GenericsUtils.java=UTF-8
+encoding//src/stu/login/Login.java=UTF-8
+encoding//src/stu/message/MessageAction.java=UTF-8
+encoding/<project>=UTF-8

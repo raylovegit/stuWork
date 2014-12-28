@@ -1,0 +1,22 @@
+#
+#Sat Jul 31 09:56:46 CST 2010
+genBasicCompId=true
+sessionFactoryName=
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+libInstallFolder=/WebRoot/WEB-INF/lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=/stuWork/hibernate.reveng.xml
+configFile=/stuWork/conf/jdbc.properties
+createConfigFile=false
+addLibs2Classpath=true

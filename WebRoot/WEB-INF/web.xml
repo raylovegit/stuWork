@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">  
+    <!-- 配置spring的核心listener -->
+    <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring*.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+		<listener>
+		<listener-class>
+			stu.login.OnlineCount
+		</listener-class>
+	</listener>
+<!-- 登陆拦截 -->
+	<filter>
+        <filter-name>Login</filter-name>
+        <filter-class>stu.login.LoginFilter</filter-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>index.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ext</param-name>
+            <param-value>login.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>userLogin</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Login</filter-name>
+        <url-pattern>/denglu/*</url-pattern>
+    </filter-mapping>
+    <!-- 登陆拦截 -->
+	<!-- 使用Spring解决Hiberante因session关闭导致的延迟例外问题 --> 
+	<filter> 
+	<filter-name>OpenSessionInViewFilter</filter-name> 
+	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> 
+	</filter> 
+	<filter-mapping> 
+	<filter-name>OpenSessionInViewFilter</filter-name> 
+	<url-pattern>/*</url-pattern> 
+	</filter-mapping> 
+	<!-- 配置struts2的过滤器 -->
+	<filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>            
+		  <filter-name>struts2</filter-name>            
+		  <url-pattern>*.action</url-pattern>            
+	</filter-mapping>            
+        
+	<filter-mapping>            
+	  <filter-name>struts2</filter-name>            
+	  <url-pattern>*.jsp</url-pattern>            
+	</filter-mapping> 
+	
+    <!-- 配置Struts2的CleanUp的过滤器 -->
+	<filter>
+		<filter-name>struts2-cleanup</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ActionContextCleanUp
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2-cleanup</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+    <!--配置结束-->
+    <!-- 错误页面的配置 -->
+    <error-page>
+		<error-code>500</error-code>
+		<location>/common/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/common/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/common/403.jsp</location>
+	</error-page>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+        <!-- 添加fck2.6编辑器 -->
+    <servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<!-- Do not wrap this line otherwise Glassfish will fail to load this file -->
+		<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+	</servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    	<package name="stu" extends="struts-stu" namespace="/">
+    			<action name="newsAction_*" class="newsAction" method="{1}">
+    				<result name="index">/WEB-INF/jsp/news/index.jsp</result>
+    				<result name="list">/WEB-INF/jsp/news/list.jsp</result>
+    				<result name="delete" type="redirect">/newsAction_list.action</result>
+    				<result name="create">/WEB-INF/jsp/news/create.jsp</result>
+    				<result name="update">/WEB-INF/jsp/news/update.jsp?pageNow=${pageNow}&amp;type=${type}&amp;flag=${flag}</result>
+    				<result name="updateok" type="redirect">/newsAction_list.action?pageNow=${pageNow}&amp;type=${type}&amp;flag=${flag}</result>
+    				<result name="read">/WEB-INF/jsp/news/read.jsp?pageNow=${pageNow}</result>
+    				<result name="bentchDelete" type="redirect">/newsAction_list.action</result>
+    			</action>
+    	</package>
+    </struts>

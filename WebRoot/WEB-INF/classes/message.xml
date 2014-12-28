@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    	<package name="message" extends="struts-stu" namespace="/">
+    			<action name="messageAction_*" class="messageAction" method="{1}">
+    				<result name="index">/WEB-INF/jsp/message/index.jsp</result>
+    				<result name="list">/WEB-INF/jsp/message/backList.jsp</result>
+    				<result name="VerifyedList">/WEB-INF/jsp/message/create.jsp</result>
+    				<result name="delete" type="redirect">/messageAction_list.action</result>
+    				<result name="create">/WEB-INF/jsp/message/create.jsp</result>
+    				<result name="createok" type="redirect">/messageAction_verifyedList.action</result>
+    				<result name="update">/WEB-INF/jsp/message/update.jsp?pageNow=${pageNow}</result>
+    				<result name="updateok" type="redirect">/messageAction_list.action</result>
+    				<result name="readok">/WEB-INF/jsp/message/read.jsp</result>
+    				<result name="bentchDelete" type="redirect">/messageAction_list.action</result>
+    				<result name="verifyUpdate" type="redirect">/messageAction_list.action</result>
+    			</action>
+    	</package>
+    </struts>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="backup" extends="struts-stu" namespace="/">
+		<action name="backupAction_*" class="backupAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/backupAction/backup.jsp</result> 
+		<result name="alist">/WEB-INF/jsp/backupAction/litterbackup.jsp</result>
+		<result name="backup" type="redirect">/backupAction_list.action?message=${message}</result>
+		<result name="addbackup" type="redirect">/backupAction_alist.action?message=${message}</result>
+		<!-- 出错处理页面 -->
+		<result name="input" >/commons/500.jsp</result>
+		</action>	
+	</package> 
+</struts>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="struts-stu" extends="struts-default">
+			<interceptors>
+					<interceptor name="login" class="stu.login.Login"></interceptor>
+					<interceptor-stack name="myInterceptor">
+						<interceptor-ref name="defaultStack"></interceptor-ref>
+						<interceptor-ref name="login"></interceptor-ref>
+					</interceptor-stack>
+			</interceptors>
+			<default-interceptor-ref name="myInterceptor"></default-interceptor-ref>
+			<global-results>
+				<result name="login_timeout">/denglu/timeout.jsp</result>
+			</global-results>
+	</package>
+	<package name="login" extends="struts-stu">
+			<action name="login_*" class="loginAction" method="{1}" >
+				<result name="login">/denglu/news_index.jsp</result>
+				<result name="college_login">/denglu/college_index.jsp</result>
+				<result name="login_fail">/login.jsp</result>
+			</action>
+			<action name="indexAction_*" class="indexAction" method="{1}" >
+				<result name="indexList">/index.jsp</result>
+				<result name="list">/guizhang.jsp</result>
+				<result name="read">/guizhang2.jsp</result>
+				<result name="meglist">/message.jsp</result>
+				<result name="createmeg" type="redirect">/indexAction_megList.action</result>
+			</action>
+	</package>
+</struts>

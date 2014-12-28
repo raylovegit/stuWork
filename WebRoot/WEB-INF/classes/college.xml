@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    	<package name="college" extends="struts-stu" namespace="/">
+    			<action name="collegeAction_*" class="collegeAction" method="{1}">
+    				<result name="list">/WEB-INF/jsp/college/list.jsp</result>
+    				<result name="delete" type="redirect">/collegeAction_list.action</result>
+    				<result name="toCreate">/WEB-INF/jsp/college/create.jsp</result>
+    				<result name="createok" type="redirect">/collegeAction_list.action</result>
+    				<result name="update">/WEB-INF/jsp/college/update.jsp?pageNow=${pageNow}</result>
+    				<result name="updateok" type="redirect">/collegeAction_list.action?pageNow=${pageNow}</result>
+    				<result name="read">/WEB-INF/jsp/college/read.jsp?pageNow=${pageNow}</result>
+    				<result name="verifyread">/WEB-INF/jsp/college/verifyread.jsp?pageNow=${pageNow}</result>
+    				<result name="bentchDelete" type="redirect">/collegeAction_list.action</result>
+    				<result name="flagupdate" type="redirect">/collegeAction_list.action</result>
+    				<result name="flagupdate2" type="redirect">/collegeAction_verifyList.action</result>
+    				<result name="verifylist">/WEB-INF/jsp/college/verifyList.jsp</result>
+    			</action>
+    	</package>
+    </struts>
